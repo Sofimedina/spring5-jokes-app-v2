@@ -2,13 +2,18 @@ package com.sofitapp.spring5jokesappv2.services;
 
 import guru.springframework.norris.chuck.ChuckNorrisQuotes;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class JokesServiceImpl implements JokesService {
 
-    private ChuckNorrisQuotes chuckNorrisQuotes=new ChuckNorrisQuotes();
+    private final ChuckNorrisQuotes chuckNorrisQuotes;
+    public JokesServiceImpl() {
+        this.chuckNorrisQuotes = new ChuckNorrisQuotes();
+    }
+
     @Override
-    public String getRandomJoke() {
+    public String getJoke() {
         return chuckNorrisQuotes.getRandomQuote();
     }
 }
